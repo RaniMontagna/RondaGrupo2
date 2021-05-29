@@ -31,10 +31,10 @@
 				   	placeholder="Data e Hora Final">
 					
 					<label for="latUltima" class="form-label">Latitude Ultima</label> 
-					<input type="number" name="latUltima" value="${o.latUltima}" class="form-control">
+					<input type="number" step="any" name="latUltima" value="${o.latUltima}" class="form-control">
 					
 					<label for="lonUltima" class="form-label">Longitude Ultima</label> 
-					<input type="number" name="lonUltima" value="${o.lonUltima}" class="form-control">
+					<input type="number" step="any" name="lonUltima" value="${o.lonUltima}" class="form-control">
 					
 					<label for="dataHoraUltima" class="form-label">Data e Hora Ultima</label> 
 					<input type="datetime-local" class="form-control" id="dataHoraUltima" name="dataHoraUltima" 
@@ -42,8 +42,8 @@
 				   	value="<fmt:formatDate value="${o.dataHoraUltima}" pattern="yyyy-MM-dd"/>T<fmt:formatDate value="${o.dataHoraUltima}" pattern="HH:mm"/>" 
 				   	placeholder="Data e Hora Ultima">
 				
-					<label for="locomocao" class="form-label">Locomocao</label> 
-					<select name="locomocao" id="locomocao">
+					<label for="locomocao" class="form-label">Locomoção</label> 
+					<select class="form-control form-select" name="locomocao" id="locomocao">
 				   		<c:forEach items="${locomocoes}" var="l" varStatus="index">
 				       		<option value="${l.id}">${l.id} - ${l.descricao}</option>
 				    	</c:forEach>

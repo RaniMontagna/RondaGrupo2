@@ -31,12 +31,12 @@
 		<div class="dropdown">
  			<button class="dropbtn"><span>Adicionar</span><i class="fas fa-chevron-down"></i></button>
  			<div class="dropdown-content">
-				<a href="../Pessoa/PessoaForm.jsp">Pessoa</a>
-				<a href="../Locomocao/LocomocaoForm.jsp">Locomoção</a>
-				<a href="../Usuario/UsuarioForm.jsp">Usuário</a>
-				<a href="../Localizacao/LocalizacaoForm.jsp">Localização</a>
-				<a href="../Ocorrencia/OcorrenciaForm.jsp">Ocorrência</a>
-				<a href="../Ronda/RondaForm.jsp">Ronda</a>
+				<a href="../Pessoa/PessoaServlet?incluir">Pessoa</a>
+				<a href="../Locomocao/LocomocaoServlet?incluir">Locomoção</a>
+				<a href="../Usuario/UsuarioServlet?incluir">Usuário</a>
+				<a href="../Localizacao/LocalizacaoServlet?incluir">Localização</a>
+				<a href="../Ocorrencia/OcorrenciaServlet?incluir">Ocorrência</a>
+				<a href="../Ronda/RondaServlet?incluir">Ronda</a>
   			</div>
 		</div>
 		<div class="dropdown">

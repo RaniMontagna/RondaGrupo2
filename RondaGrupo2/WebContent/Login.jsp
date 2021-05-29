@@ -22,12 +22,7 @@
 	   <div class="button"> 
 	      <button type="submit">Login</button>
 	   </div> 
-	   
 	</div> 
 </form>
-  
-
-
-
 </body>
 </html>

@@ -25,13 +25,13 @@
 				   	placeholder="Data e Hora">
 					
 					<label for="latitude" class="form-label">Latitude</label> 
-					<input type="number" name="lat" value="${o.lat}" class="form-control">
+					<input type="number" step="any" name="lat" value="${o.lat}" class="form-control">
 					
 					<label for="longitude" class="form-label">Longitude</label> 
-					<input type="number" name="lon" value="${o.lon}" class="form-control">
+					<input type="number" step="any" name="lon" value="${o.lon}" class="form-control">
 					
 					<label for="ronda" class="form-label">Ronda</label> 
-					<select name="ronda" id="ronda">
+					<select class="form-control form-select" aria-label="Default select example" name="ronda" id="ronda">
 				   		<c:forEach items="${rondas}" var="r" varStatus="index">
 				       		<option value="${r.id}">${r.id} - ${r.locomocao.descricao} - <fmt:formatDate value="${r.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></option>
 				    	</c:forEach>

@@ -17,7 +17,7 @@
 					<label for="id" class="form-label">Id</label> 
 					<input type="number" name="id" value="${o.id}" class="form-control">
 					<label for="email" class="form-label">Email</label> 
-					<input type="email" name="email" value="${o.email}" class="form-control">
+					<input type="email" name="email" value="${o.email}" class="form-control" placeholder="nome@email.com">
 					<label for="nome" class="form-label">Nome</label> 
 					<input type="text" name="nome" value="${o.nome}" class="form-control" placeholder="Nome">
 					<label for="senha" class="form-label">Senha</label> 

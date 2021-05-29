@@ -16,8 +16,8 @@
 	<form action="LocalizacaoServlet">
 
 		<button class="btn-incluir" name="incluir"><i class="fas fa-user-plus"></i><p>Incluir</p></button>
-
-		<table class="table table-striped">
+		<div class="table-responsive">
+		<table class="table">
 		<thead class="table-dark">
 				<tr>
 					<th>Data e Hora</th>
@@ -40,6 +40,7 @@
 			</c:forEach>
 		</tbody>
 		</table>
+		</div>
 	</form>
 	</div>
 </body>

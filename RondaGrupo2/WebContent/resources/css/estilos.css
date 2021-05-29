@@ -10,7 +10,6 @@ html, body {
 }
 
 /* Css para formulários */
-
 .pessoa {
 	background-image: url("../images/bg_formPessoa.jfif");
 	background-size: cover;
@@ -37,7 +36,8 @@ html, body {
 }
 
 .ronda {
-	background-image: url(https://images.unsplash.com/photo-1565284849933-7a1b2a9d14f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
+	background-image:
+		url(https://images.unsplash.com/photo-1565284849933-7a1b2a9d14f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
 	background-size: cover;
 }
 
@@ -52,14 +52,13 @@ html, body {
 	border-radius: 3em;
 }
 
-@media (max-width: 800px) {
-    .Form div.box {
-    	padding: 1em;
-    	border-radius: 2em;
-    }
-    
-    .Form div.inputs {
-	padding: 0.2em 0.4em;
+@media ( max-width : 800px) {
+	.Form div.box {
+		padding: 1em;
+		border-radius: 2em;
+	}
+	.Form div.inputs {
+		padding: 0.2em 0.4em;
 	}
 }
 
@@ -125,27 +124,27 @@ html, body {
 	padding: 2em 15em;
 }
 
-@media (max-width: 1200px) {
-    .menu {
-    	padding: 2em 2em;
-    }
-    .menu .btns {
-    	width: 100%;
-    	justify-content: center;
-    }
+@media ( max-width : 1200px) {
+	.menu {
+		padding: 2em 2em;
+	}
+	.menu .btns {
+		width: 100%;
+		justify-content: center;
+	}
 }
 
-@media (max-width: 800px) {
-    .menu {
-    	flex-direction: column;
-    }
-    .menu .text {
-    	width: 100%;	
-    }
-    .menu .btns {
-    	width: 100%;
-    	justify-content: center;
-    }
+@media ( max-width : 800px) {
+	.menu {
+		flex-direction: column;
+	}
+	.menu .text {
+		width: 100%;
+	}
+	.menu .btns {
+		width: 100%;
+		justify-content: center;
+	}
 }
 
 .menu div h3 {
@@ -160,13 +159,13 @@ html, body {
 }
 
 .dropbtn {
-  background-color: transparent;
-  color: black;
-  padding: 0px 10px;
-  border-radius: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+	background-color: transparent;
+	color: black;
+	padding: 0px 10px;
+	border-radius: 10px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
 }
 
 .dropbtn span {
@@ -174,36 +173,47 @@ html, body {
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 120px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
 
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
 /* Css para os arquivos de listagem */
 .List .content {
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.List .content h3 {
+	font-weight: 300;
+	margin-top: 2em;
+	font-size: 2.5em;
 }
 
 .action {
@@ -212,14 +222,8 @@ html, body {
 	font-weight: 300;
 }
 
-.List .content form th {
-	font-size: 1.5em;
-	font-weight: 400;
-}
-
-.List .content form td {
-	font-size: 1.3em;
-	font-weight: 300;
+.List .content form .act {
+	width: 10%;
 }
 
 .List .content form {
@@ -227,22 +231,9 @@ html, body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 }
 
-.List .content h3 {
-	font-weight: 300;
-	font-size: 3em;
-	margin-top: 2em;
-}
-
-.List .content table {
-	border: solid 3px #343a40;
-	width: 1800px;
-}
-
-.List .content table .act {
-	width: 15%;
-}
 
 .btn-incluir {
 	width: 200px;
@@ -269,7 +260,6 @@ html, body {
 }
 
 /* Css tela de login */
-
 .login {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	display: flex;
@@ -302,12 +292,12 @@ html, body {
 }
 
 .login .box .button {
-	width:  100%;
+	width: 100%;
 }
 
 .login .box .button button {
 	width: 100%;
-	background-color: rgba(0,170,255,1);
+	background-color: rgba(0, 170, 255, 1);
 	border-radius: 1em;
 	border: none;
 	height: 3em;
@@ -318,7 +308,6 @@ html, body {
 }
 
 /* Css página home.jsp */
-
 .home {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	padding: 5em;
@@ -344,7 +333,6 @@ html, body {
 }
 
 /* Css para rodapé */
-
 .rodape {
 	width: 100%;
 	background-color: #0093E9;
