@@ -21,24 +21,27 @@
 		<table class="table">
 		<thead class="table-dark">
 				<tr>
+					<th>Miniatura</th>
 					<th>Data e Hora</th>
 					<th>Titulo</th>
 					<th>Descrição</th>
 					<th>Latitude</th>
 					<th>Longitude</th>
 					<th>Ronda</th>
-					<th class="act" colspan="2">Ações</th>
+					<th class="act" colspan="3">Ações</th>
 				</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${lista}" var="o" varStatus="index">
 				<tr>
-					<td><fmt:formatDate value="${o.dataHora}" pattern="dd/MM/yyyy HH:mm"/></td>
-					<td>${o.titulo}</td>
-					<td>${o.descricao}</td>
-					<td>${o.lat}</td>
-					<td>${o.lon}</td>
-					<td>${o.ronda.id} - ${o.ronda.locomocao.descricao} - <fmt:formatDate value="${o.ronda.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></td>
+					<td><img width="150" src="data:image/jpg;base64,${o.fotoBase64}" /></td>
+					<td class="tdList"><fmt:formatDate value="${o.dataHora}" pattern="dd/MM/yyyy HH:mm"/></td>
+					<td class="tdList">${o.titulo}</td>
+					<td class="tdList">${o.descricao}</td>
+					<td class="tdList">${o.lat}</td>
+					<td class="tdList">${o.lon}</td>
+					<td class="tdList">${o.ronda.id} - ${o.ronda.locomocao.descricao} - <fmt:formatDate value="${o.ronda.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></td>
+					<td><button class="action" name="alterarFoto" value="${o.id}"><i class="fas fa-camera-retro"></i>Foto</button></td>
 					<td><button class="action" name="alterar" value="${o.id}"><i class="fas fa-user-edit"></i> Editar</button></td>
 					<td><button class="action" name="excluir" value="${o.id}"><i class="fas fa-user-times"></i> Excluir</button></td>
 				</tr>

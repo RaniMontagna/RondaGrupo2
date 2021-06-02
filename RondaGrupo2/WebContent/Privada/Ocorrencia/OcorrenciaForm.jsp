@@ -12,7 +12,7 @@
 <body class="Form ocorrencia">
 	<div class="content">
 	<div class="box">
-		<form action="OcorrenciaServlet" method="post">
+		<form action="OcorrenciaServlet" method="post" enctype="multipart/form-data">
 		<h3>Formulário - Registrar Ocorrência</h3>
 			<fieldset>
 				<div class="inputs">
@@ -41,7 +41,7 @@
 				   		<c:forEach items="${rondas}" var="r" varStatus="index">
 				       		<option value="${r.id}">${r.id} - ${r.locomocao.descricao} - <fmt:formatDate value="${r.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></option>
 				    	</c:forEach>
-			  		</select>
+			  		</select>			  		
 				</div>
 				<div class="btns">
 					<button type="submit" name="gravar">Gravar</button>

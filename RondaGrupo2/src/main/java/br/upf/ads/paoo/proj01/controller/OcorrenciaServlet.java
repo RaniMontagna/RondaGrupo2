@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.upf.ads.paoo.proj01.domain.Ocorrencia;
 import br.upf.ads.paoo.proj01.domain.Ronda;
 import br.upf.ads.paoo.proj01.jpa.JpaUtil;
+import br.upf.ads.paoo.proj01.uteis.Upload;
+import net.iamvegan.multipartrequest.HttpServletMultipartRequest;
 
 /**
  * Servlet implementation class PessoaServlet
@@ -35,6 +37,13 @@ public class OcorrenciaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
+		request = new HttpServletMultipartRequest(
+				request,
+				HttpServletMultipartRequest.MAX_CONTENT_LENGTH,
+				HttpServletMultipartRequest.SAVE_TO_TMPDIR,
+				HttpServletMultipartRequest.IGNORE_ON_MAX_LENGTH,
+				HttpServletMultipartRequest.DEFAULT_ENCODING);
+		
 		if (request.getParameter("gravar") != null) {
            gravar(request, response);
 		} else if (request.getParameter("incluir") != null) {
@@ -45,6 +54,10 @@ public class OcorrenciaServlet extends HttpServlet {
 			excluir(request, response);
 		} else if (request.getParameter("cancelar") != null) {
 			cancelar(request, response);
+		} else if (request.getParameter("alterarFoto") != null) {
+			alterarFoto(request, response);
+		}else if (request.getParameter("gravarFoto") != null) {
+			gravarFoto(request, response);
 		}
 		else { // default = consultar
 			listar(request, response);
@@ -52,6 +65,26 @@ public class OcorrenciaServlet extends HttpServlet {
 		
 	}
 
+	private void alterarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("alterarFoto"));
+		EntityManager em = JpaUtil.getEntityManager();
+		Ocorrencia o = em.find(Ocorrencia.class, id);
+		em.close();
+		request.setAttribute("o", o); // repassamos o objeto para o pessoaform inicializar os dados
+		request.getRequestDispatcher("OcorrenciaFoto.jsp").forward(request, response);
+	}	
+	
+	private void gravarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Aqui introduzimos o código para persistir a pessoa no BD!
+		EntityManager em = JpaUtil.getEntityManager();
+		em.getTransaction().begin();
+		Ocorrencia o = em.find(Ocorrencia.class, Integer.parseInt(request.getParameter("id")));
+		o.setFoto(Upload.getBytesArquivo((HttpServletMultipartRequest) request, "foto"));			
+		em.merge(o); // armazena o objeto no BD - tanto inclui como altera
+		em.getTransaction().commit();	
+        em.close();
+        listar(request, response);
+	}	
 	
 	private void cancelar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		listar(request, response); // vai para o pessoalist
@@ -127,7 +160,6 @@ public class OcorrenciaServlet extends HttpServlet {
 				request.getParameter("descricao"),
 				Float.parseFloat(request.getParameter("lat")),
 				Float.parseFloat(request.getParameter("lon")),
-				null,
 				ronda
 				);
 		return o;

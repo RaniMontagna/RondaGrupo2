@@ -33,6 +33,15 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- MultiPartRequest -->
+		<dependency>
+			<groupId>net.iamvegan</groupId>
+			<artifactId>multipartrequest</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/multipartrequest.jar</systemPath>
+		</dependency>
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

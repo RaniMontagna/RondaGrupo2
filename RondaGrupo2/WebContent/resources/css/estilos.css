@@ -52,6 +52,24 @@ html, body {
 	border-radius: 3em;
 }
 
+.boxFoto {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.boxFoto img {
+	border-radius: 50px;
+}
+
+.areaImagem {
+	padding: 0.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 @media ( max-width : 800px) {
 	.Form div.box {
 		padding: 1em;
@@ -217,9 +235,18 @@ html, body {
 }
 
 .action {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	background: none;
-	border: none;
+	border: none; font-weight : 300;
+	height: 3.5em;
 	font-weight: 300;
+}
+
+.table td {
+	vertical-align: middle;
 }
 
 .List .content form .act {
@@ -233,7 +260,6 @@ html, body {
 	align-items: center;
 	width: 100%;
 }
-
 
 .btn-incluir {
 	width: 200px;
