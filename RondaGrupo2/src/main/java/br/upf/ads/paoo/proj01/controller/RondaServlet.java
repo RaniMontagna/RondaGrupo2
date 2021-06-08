@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.upf.ads.paoo.proj01.domain.Locomocao;
+import br.upf.ads.paoo.proj01.domain.Pessoa;
 import br.upf.ads.paoo.proj01.domain.Ronda;
 import br.upf.ads.paoo.proj01.jpa.JpaUtil;
 
@@ -45,6 +46,12 @@ public class RondaServlet extends HttpServlet {
 			excluir(request, response);
 		} else if (request.getParameter("cancelar") != null) {
 			cancelar(request, response);
+		} else if (request.getParameter("vigilantes") != null) {
+			vigilantes(request, response);
+		} else if (request.getParameter("incluirVigilante") != null) {
+			incluirVigilante(request, response);
+		} else if (request.getParameter("excluirVigilante") != null) {
+			excluirVigilante(request, response);
 		}
 		else { // default = consultar
 			listar(request, response);
@@ -52,6 +59,64 @@ public class RondaServlet extends HttpServlet {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	private void vigilantes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer idRonda = Integer.parseInt(request.getParameter("vigilantes"));
+		EntityManager em = JpaUtil.getEntityManager();
+		Ronda o = em.find(Ronda.class, idRonda);
+		List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+		em.close();
+		request.setAttribute("o", o); // repassamos o objeto para o pessoaform inicializar os dados
+		request.setAttribute("pessoas", pessoas);
+		request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void incluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EntityManager em = JpaUtil.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			Ronda o = em.find(Ronda.class, Integer.parseInt(request.getParameter("idRonda")));
+			Pessoa p = em.find(Pessoa.class, Integer.parseInt(request.getParameter("vigilante")));
+			o.getVigilantes().add(p);
+			em.merge(o); // armazena o objeto no BD - tanto inclui como altera
+			em.getTransaction().commit();
+			
+			List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+			request.setAttribute("o", o); // repassamos o objeto para o pessoaform inicializar os dados
+			request.setAttribute("pessoas", pessoas);
+			request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void excluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EntityManager em = JpaUtil.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			Ronda o = em.find(Ronda.class, Integer.parseInt(request.getParameter("idRonda")));
+			Pessoa p = em.find(Pessoa.class, Integer.parseInt(request.getParameter("excluirVigilante")));
+			o.getVigilantes().remove(p);
+			em.merge(o); // armazena o objeto no BD - tanto inclui como altera
+			em.getTransaction().commit();
+			
+			List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+			request.setAttribute("o", o); // repassamos o objeto para o pessoaform inicializar os dados
+			request.setAttribute("pessoas", pessoas);
+			request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	
+	
 	
 	private void cancelar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		listar(request, response); // vai para o pessoalist

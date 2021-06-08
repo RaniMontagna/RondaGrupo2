@@ -27,6 +27,7 @@
 					<th>Longitude Ultima</th>
 					<th>Data Ultima</th>
 					<th>Locomoção</th>
+					<th>Vigilantes</th>
 					<th class="act" colspan="2">Ações</th>
 				</tr>
 		</thead>
@@ -39,6 +40,7 @@
 					<td>${o.lonUltima}</td>
 					<td><fmt:formatDate value="${o.dataHoraUltima}" pattern="dd/MM/yyyy HH:mm"/></td>
 					<td>${o.locomocao.id} - ${o.locomocao.descricao}</td>
+					<td><button class="action" name="vigilantes" value="${o.id}"><i class="fas fa-user-edit"></i>Alterar</button></td>
 					<td><button class="action" name="alterar" value="${o.id}"><i class="fas fa-user-edit"></i> Editar</button></td>
 					<td><button class="action" name="excluir" value="${o.id}"><i class="fas fa-user-times"></i> Excluir</button></td>
 				</tr>
