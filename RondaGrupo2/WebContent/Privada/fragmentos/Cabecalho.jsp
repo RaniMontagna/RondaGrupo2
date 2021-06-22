@@ -50,6 +50,14 @@
 				<a href="../Ronda/RondaServlet">Ronda</a>
   			</div>
 		</div>
+		<div class="dropdown">
+ 			<button class="dropbtn"><span>Relatórios</span><i class="fas fa-chevron-down"></i></button>
+ 			<div class="dropdown-content">
+				<a href="../Relatorios/RelOcorrenciaServlet" target="_blank">Locomoção</a>
+				<a href="../Relatorios/RelPessoaServlet" target="_blank">Pessoa</a>
+				<a href="../Relatorios/RelRondaServlet" target="_blank">Ronda</a>
+  			</div>
+		</div>
 		<a class="btn" href="../SairServlet">Sair</a>
 		</div>
 	</nav>
